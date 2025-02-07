@@ -2,10 +2,10 @@ import json
 import yaml
 from pathlib import Path
 from typing import Any, Dict
-from gendiff.comparator import create_diff
-from gendiff.formatter.stylish import format_style
-from gendiff.formatter.plain import format_plain
-from gendiff.formatter.json import format_json
+from diff_gen.comparator import create_diff
+from diff_gen.formatter.stylish import format_style
+from diff_gen.formatter.plain import format_plain
+from diff_gen.formatter.json import format_json
 
 
 # Читаем содержимое файла и возвращаем строку
