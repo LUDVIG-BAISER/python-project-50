@@ -1,11 +1,11 @@
 # Преобразуем входное значение в строку.
 def to_string(x):
     if x is None:
-        result = 'null'
+        result = "null"
     elif isinstance(x, bool):
-        result = 'false'
+        result = "false"
         if x:
-            result = 'true'
+            result = "true"
     else:
         result = str(x)
     return result
