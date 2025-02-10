@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "show difference between two configuration files"
 authors = ["Evgenii <evgen.ak24@gmail.com>"]
 readme = "README.md"
-packages = [{include = "gendiff"}]
+packages = [{include = "diff_gen"}]
 
 [tool.poetry.dependencies]
 python = ">=3.12"
@@ -15,7 +15,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-gendiff = "gendiff.scripts.gendiff:main"
+gendiff = "diff_gen.scripts.gendiff:main"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.1.1"
