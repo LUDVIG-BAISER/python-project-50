@@ -38,7 +38,8 @@ def get_list_lines(item: Dict[str, Any], level: int) -> List[str]:
     elif status == "changed":  # Измененное значение
         lines.append(f"{indent[:-2]}- {key}: {get_value(old_value, level)}")
         lines.append(f"{indent[:-2]}+ {key}: {get_value(new_value, level)}")
-    else: # Ошибка если статус неизвестен
+    else:
+        # Ошибка если статус неизвестен
         raise ValueError("error in format diff")
     return lines
 
