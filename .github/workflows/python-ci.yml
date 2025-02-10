@@ -13,21 +13,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout репозиторий
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Установка Python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.12"
+          python-version: '3.12'
 
-      - name: Установка Poetry
-        uses: abatilo/actions-poetry@v2
-        with:
-          poetry-version: "1.8.2"
+      - name: Install Poetry
+        run: pip install poetry
 
-      - name: Установка зависимостей
+      - name: Install dependencies
         run: poetry install
 
-      - name: Запуск тестов
-        run: poetry run pytest
+      - name: Run tests with coverage
+        run: poetry run pytest --cov=gendiff --cov-report=xml
+
+      - name: Upload coverage to Code Climate
+        run: |
+          curl -LO https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+          chmod +x test-reporter-latest-linux-amd64
+          ./test-reporter-latest-linux-amd64 format-coverage -t coverage.py
+          ./test-reporter-latest-linux-amd64 upload-coverage
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
