@@ -24,6 +24,8 @@ test_data: list[tuple[str, str, str, str]] = [
 
 # Тестирует функцию generate_diff с разными форматами вывода
 @pytest.mark.parametrize("file1, file2, format_name, result_file", test_data)
-def test_flat_json(file1: str, file2: str, format_name: str, result_file: str) -> None:
+def test_flat_json(file1: str, file2:
+str, format_name: str, result_file: str) -> None:
     result: str = open(get_path(result_file)).read()
-    assert generate_diff(get_path(file1), get_path(file2), format_name) == result
+    assert generate_diff(get_path(file1),
+                         get_path(file2), format_name) == result

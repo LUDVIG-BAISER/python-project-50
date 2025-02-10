@@ -25,7 +25,8 @@ def make_line(item: Dict[str, Any], path: str) -> Optional[str]:
     actions = {
         "added": lambda: f"added with value: {get_value(item['new_value'])}",
         "deleted": lambda: "removed",
-        "changed": lambda: f"updated. From {get_value(item['old_value'])} to {get_value(item['new_value'])}",
+        "changed": lambda: f"updated. From {get_value(item['old_value'])} to"
+                           f" {get_value(item['new_value'])}",
     }
 
     if status in actions:

@@ -2,13 +2,14 @@ from typing import Any, Dict, List
 
 
 # Создаем список различий между двумя словарями
-def create_diff(tree1: Dict[str, Any], tree2: Dict[str, Any]) -> List[Dict[str, Any]]:
+def create_diff(tree1: Dict[str, Any],
+                tree2: Dict[str, Any]) -> List[Dict[str, Any]]:
     result: List[Dict[str, Any]] = []
     tree1_keys = tree1.keys()
     tree2_keys = tree2.keys()
     all_keys = sorted(set(tree1_keys) | set(tree2_keys))  # Все уникальные ключи
-    added_keys = tree2_keys - tree1_keys  # Ключи которые только в первом словаре
-    deleted_keys = tree1_keys - tree2_keys  # Ключи которые только во втором словаре
+    added_keys = tree2_keys - tree1_keys  # Ключи первого словаря
+    deleted_keys = tree1_keys - tree2_keys  # Ключи второго словаря
     for key in all_keys:
         item: Dict[str, Any] = {"key": key}
         value1 = tree1.get(key)
@@ -20,7 +21,7 @@ def create_diff(tree1: Dict[str, Any], tree2: Dict[str, Any]) -> List[Dict[str, 
             item["status"] = "deleted"
             item["old_value"] = value1
         elif isinstance(value1, dict) and isinstance(
-            value2, dict
+                value2, dict
         ):  # Оба значения словари
             item["status"] = "nested"
             item["nested"] = create_diff(
