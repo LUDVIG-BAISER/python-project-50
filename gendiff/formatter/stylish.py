@@ -41,7 +41,7 @@ def get_list_lines(item: Dict[str, Any], level: int) -> List[str]:
     else:
         raise ValueError("error in format diff")
     return lines
-# Ошибка формата
+
 
 # Преобразуем значение в строку с учетом типа
 def get_value(value: Any, level: int) -> str:

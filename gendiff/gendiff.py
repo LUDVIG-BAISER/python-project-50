@@ -37,7 +37,7 @@ def file_to_dict(path: str) -> Dict[str, Any]:
 
 # Генерируем разницу между двумя файлами
 def generate_diff(
-    file_path1: str, file_path2: str, format_name: str = "stylish"
+        file_path1: str, file_path2: str, format_name: str = "stylish"
 ) -> str:
     dict1 = file_to_dict(file_path1)
     dict2 = file_to_dict(file_path2)
@@ -54,4 +54,4 @@ def get_formatted_diff(diff: Any, format_name: str = "stylish") -> str:
     elif format_name == "json":
         return format_json(diff)
     else:
-        raise ValueError("not support formatted name")  # Ошибка если формат неизвестен
+        raise ValueError("not support formatted name")
