@@ -1,4 +1,4 @@
-from diff_gen.formatter.common import to_string
+from gendiff.formatter.common import to_string
 
 from typing import Any, Dict, List, Optional
 
