@@ -1,0 +1,12 @@
+.venv/
+env/
+venv/
+poetry.lock
+dist/
+build/
+*.egg-info/
+*.whl
+*.tar.gz
+.coverage
+coverage.xml
+htmlcov/
